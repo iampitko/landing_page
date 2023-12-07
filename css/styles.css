@@ -478,3 +478,27 @@ header .fa-bars{
         font-size: 3rem;
     }
 }
+
+@keyframes marqueeAnimation {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+.marquee-container {
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.marquee-text {
+    color: var(--main);
+    animation: marqueeAnimation 10s linear infinite;
+    white-space: nowrap;
+    font-size: 16px;
+}
+
+@media (max-width: 480px) {
+    .marquee-text {
+        font-size: 12px;
+        animation-duration: 10s;
+    }
+}
