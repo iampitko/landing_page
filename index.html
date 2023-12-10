@@ -11,6 +11,10 @@
     
     <!-- custom css file link -->
     <link rel="stylesheet" href="css/styles.css">
+
+    <script defer src="js/script.js"></script>
+
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
               
 </head>  
     <style>  
@@ -40,21 +44,37 @@
             <a href="#product">product</a>
             <a href="#contact">contact</a> 
         </nav>
-        
+
     </header>
  
  <!-- header section ends -->
 
 
-
- <!-- home section starts -->
  
  <br><br><br><br><br><br><br><br><br>
  
  <!-- home section starts -->
- <div class="marquee-container">
+<div class="timer_block clearfix">
+    <p>This offer will expire in:</p>
+    <div class="timer clearfix">
+        <div class="timer_item">
+            <div class="text">hours</div>
+            <div class="count hours"></div>
+        </div>
+        <div class="timer_item">
+            <div class="text">minutes</div>
+            <div class="count minutes"></div>
+        </div>
+        <div class="timer_item">
+            <div class="text">seconds</div>
+            <div class="count seconds"></div>
+        </div>
+    </div>
+</div>
+
+<div class="marquee-container">
     <div class="marquee-text">
-        ВСТИГНИ ЗАМОВИТИ ДО ПІДВИЩЕННЯ ЦІН, ЗАМОВЛЯЙ ВЖЕ СЬОГОДНІ ЗІ ЗНИЖКОЮ -400 ГРН ДО <span class="date-container" id="currentDate"></span>
+        HURRY UP TO ORDER BEFORE THE PRICE INCREASE, ORDER TODAY WITH A %15 DISCOUNT TO <span class="date-container" id="currentDate"></span>
    </div>
 </div>
 
@@ -63,11 +83,31 @@
          <h3> Hurry up <br> buy new shoes </h3>
          <span> Buy new shoes <br> from us at a crazy discount. Shoes From £50 </span>
          <p> Yaroslav Pitko </p>
-         <a href="#contact" class="btn">shop now</a>
+         <a href="#product" class="btn">shop now</a>
      </div>
 </section> 
  
- 
+ <script>
+    function updateDate() {
+    var currentDate = new Date();
+    var day = currentDate.getDate();
+    var month = currentDate.getMonth() + 1; // Місяці в JS нумеруються з 0 (січень) до 11 (грудень)
+    var formattedDate = (day < 10 ? '0' : '') + day + '.' + (month < 10 ? '0' : '') + month;
+
+    var dateContainers = document.getElementsByClassName('date-container');
+    
+    for (var i = 0; i < dateContainers.length; i++) {
+      dateContainers[i].textContent = formattedDate;
+    }
+  }
+
+  // Оновлення дати при завантаженні сторінки та потім кожен день
+  window.onload = function() {
+    updateDate();
+    setInterval(updateDate, 86400000); // 86400000 мілісекунд в одній добі
+  }
+ </script>
+
 <!-- home section ends -->
 <section class="icons-container">
          <div class="icons">
@@ -110,10 +150,12 @@
         <div class="image">
             <img src="images/cart-item-1.jpg" alt="">
         </div>
+    
 
 <div class="content">
     <h3>Adidas shoes</h3>
     <div class="price"> £77.99 <span>£90.99</span> </div>
+    <a href="#contact" class="buy-btn"> buy it </a>
 </div>
 </div>
 <div class="box">
@@ -126,6 +168,7 @@
 <div class="content">
     <h3>Adidas trainers</h3>
     <div class="price"> £51.99 <span>£69.99</span> </div>
+    <a href="#contact" class="buy-btn"> buy it </a>
 </div>
 </div>
 <div class="box">
@@ -138,10 +181,11 @@
 <div class="content">
     <h3>Adidas Waterproof </h3>
     <div class="price"> £127.99 <span>£150.99</span> </div>
-
+    <a href="#contact" class="buy-btn"> buy it </a>
 </div>
 </div>
 
+    </div>
     </div>
 </section>
 <!-- product section ends -->
@@ -155,47 +199,55 @@
         </div>
     </div>
 </section>
-   <!-- <div class="content">
-       <h3> why choose us?</h3>
-</div> -->
+
 <!--about section ends -->
  
-<!-- icons section starts -->
-<!-- <section class="icons-container">
-    <div class="content">
-        <h3> why choose us?</h3>
-    </div>
-         <div class="icons">
-         <img src="images/icon-1.jpg"alt="icons-1"style="width:75px"> 
-        
-         <div class="info">
-              <h3>free delivery</h3>
-              <span>on all orders</span>
-              <div>
-                  
-              </div>
-   </div>
-   </div>
-         <div class="icons">
-         <img src="images/icon-2.jpg"alt="">
-         <div class="info">
-              <h3>10 days returns</h3>
-              <span>moneyback guarantee</span>
-              
-   </div>
-   </div>
-         <div class="icons">
-         <img src="images/icon-3.jpg" alt="">
-         <div class="info">
-              <h3>offer & gifts</h3>
-              <span>on all orders</span>
-              
-   </div>           
-   </div>
-
+<!-- review section starts -->
+<section class="review" id="review">
    
-</section> -->
-<!-- icons section ends -->
+    <h1 class="heading"> customer's <span> review</span></h1>
+     <div class="box-container">
+         
+         <div class="box">
+             <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                
+             </div>
+             <p> Exceptional online shoe shopping experience here! Trendy styles, user-friendly interface, and prompt delivery make it my go-to for footwear. Highly recommend! </p>
+             <div class="user">
+                 <img src="images/user-1.jpg" alt="">
+                 <div class="user-info">
+                     <h3> Ashley</h3>
+                     <span>happy customer</span>
+             </div>
+           </div>
+           <span class="fas fa-quote-right"></span>
+           </div>
+           
+      <div class="box">
+             <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                
+             </div>
+             <p> I recently had a fantastic experience shopping at your website. The website's intuitive design made it easy to browse through a vast selection of trendy and comfortable shoes. Quick shipping and hassle-free returns underscored their commitment to customer satisfaction. I'll definitely be a repeat customer! </p>
+             <div class="user">
+                 <img src="images/user-2.jpg" alt="">
+                 <div class="user-info">
+                     <h3> Tyler</h3>
+                     <span>happy customer</span>
+             </div>
+           </div>
+           <span class="fas fa-quote-right"></span>
+           </div>
+<!-- review section ends -->
 
 
 <!-- contact section starts -->

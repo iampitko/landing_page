@@ -119,6 +119,66 @@ header .fa-bars{
     display:none;
 }
 
+.timer_block {
+	padding: 2px 20px 2px 20px;
+	background: #4f41a2;
+    background-image: radial-gradient(circle at 50% 50%, #888 0, #777 12.5%, #666 25%, #555 37.5%, #444 50%, #333 62.5%, #222 75%, #111 87.5%, #000 100%);
+	color: #fff;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-content: center;
+	justify-content: center;
+	align-items: center;
+}
+
+.timer_block p {
+	float: left;
+	margin: 10px 0;
+	padding: 0 0 0 40px;
+	width: 170px;
+	background: url(../images/offer3__clock_icon.png) left center no-repeat;
+	font-size: 14px;
+	line-height: 16px;
+}
+
+.timer {
+	float: right;
+	margin: 10px 0;
+}
+
+.timer_item {
+	float: left;
+	width: 60px;
+	text-align: center;
+}
+
+.timer_item .text {
+	margin: 0 0 4px;
+	font-size: 12px;
+	line-height: 12px;
+}
+
+.timer_item .count {
+	font-weight: 700;
+	font-size: 30px;
+	line-height: 30px;
+	position: relative;
+}
+
+.timer_item .count:before {
+	display: block;
+	width: 10px;
+	line-height: 24px;
+	position: absolute;
+	top: 0;
+	right: -5px;
+}
+
+.timer_item .count seconds:before {
+	display: none;
+}
+
 .home{
     display: flex;
     align-items: center;
@@ -153,6 +213,7 @@ header .fa-bars{
 
 .about .row{
     background: #eee;
+    border-radius: .5rem;
     display: flex;
     align-items: center;
     gap: 2rem;
@@ -168,7 +229,7 @@ header .fa-bars{
 
 .about .row .video-container p{
     font-size:2rem;
-    color:#999;
+    color:var(--additional);
     padding:1rem 0;
     line-height:1.5;
 }
@@ -202,7 +263,6 @@ header .fa-bars{
 }
 
 .icons-container{
-    /* background: #eee; */
     display: flex;
     flex-wrap: wrap;
     gap:1.5rem;
@@ -331,7 +391,23 @@ header .fa-bars{
     text-decoration: line-through;
  }
 
-.row {
+ .buy-btn{
+    display: inline-block;
+    margin-top: 3rem;
+    border-radius: 5rem;
+    background: var(--additional);
+    color: #eee;
+    padding: 1rem 3rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+    
+}
+
+.buy-btn:hover{
+    background:var(--main);
+}
+
+.contact .row {
     display: flex;
     flex-wrap: wrap;
     gap: 1.5rem;
@@ -339,7 +415,7 @@ header .fa-bars{
     justify-content: center;
 }
 
-.row form {
+.contact .row form {
     flex: 1 1 40rem;
     padding: 2rem 2.5rem;
     box-shadow: 0 .5 1.5rem rgba(0, 0, 0, .1);
@@ -348,15 +424,15 @@ header .fa-bars{
     border-radius: .5rem;
 }
 
-.row .image {
+.contact .row .image {
     flex: 1 1 40rem;
 }
 
-.row .image img {
+.contact .row .image img {
     width: 100%;
 }
 
-.row form .box {
+.contact .row form .box {
     padding: 1rem;
     font-size: 1.7rem;
     color: #333;
@@ -365,17 +441,70 @@ header .fa-bars{
     border-radius: .5rem;
     margin: .7rem 0;
     width: 100%;
+    background: #fff;
 }
 
-.row form .box:focus {
+.contact .row form .box:focus {
     border-color: var(--main);
 }
 
-.row form textarea {
+.contact .row form textarea {
     height: 15rem;
     resize: none;
+    background-color: #fff;
 }
 
+.review .box-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap:1.5rem;
+}
+.review .box-container .box{
+    flex:1 1 30rem;
+    box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.1);
+    border-radius: .5rem;
+    padding:3rem 2rem;
+    position: relative;
+    border:.1rem solid rgba(0,0,0,.1);
+    background: #fff;
+}
+.review .box-container .box .fa-quote-right{
+    position: absolute;
+    bottom:3rem; right:3rem;
+    font-size: 6rem;
+    color: #eee;
+}
+.review .box-container .box .stars i{
+    color:var(--main);
+    font-size: 2rem;
+}
+.review .box-container .box p{
+    color:var(--additional);
+    font-size: 1.5rem;
+    line-height:1.5;
+    padding-top: 2rem;
+}
+
+.review .box-container .box .user{
+    display: flex;
+    align-items: center;
+    padding-top: 2rem;
+}
+.review .box-container .box .user img{
+    height:6rem;
+    width:6rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right:1rem;
+}
+.review .box-container .box .user h3{
+    font-size: 2rem;
+    color:var(--main);
+}
+.review .box-container .box .user span{
+    font-size: 1.5rem;
+    color:var(--additional);
+}
 
 .footer .box-container{
     display: flex;
